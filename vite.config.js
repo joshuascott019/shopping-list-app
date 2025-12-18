@@ -15,4 +15,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  define: {
+    // eslint-disable-next-line no-undef
+    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+  },
 });
