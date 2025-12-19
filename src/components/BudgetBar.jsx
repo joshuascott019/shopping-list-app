@@ -23,7 +23,8 @@ const BudgetBar = () => {
   const remaining = getRemainingBudget(budget, total);
   const percent = getRemainingPercent(budget, remaining);
   const normalizedPercent = percent <= 1 ? percent * 100 : percent;
-  const clampedPercent = Math.max(0, Math.min(100, normalizedPercent));
+  const clampedPercent =
+    remaining < 0 ? 100 : Math.max(0, Math.min(100, normalizedPercent));
   const status = getBudgetStatus(budget, percent);
   const safeRemaining = Number.isFinite(remaining) ? remaining : 0;
 
